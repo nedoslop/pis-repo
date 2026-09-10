@@ -70,22 +70,22 @@ class ClassRoom(BasicObject):
 
 class Lesson(BasicObject):
     def __init__(
-        self, time: datetime, teacher: str, classroom: ClassRoom
+        self, time: datetime, teacher: str, name: str
     ):
         self.time = time
         self.teacher = teacher
-        self.classroom = classroom
+        self.name = name
 
     def from_str(s: str):
         arr = split_str(s)
         return Lesson(
             parse_date_time(arr[0] + " " + arr[1]),
             arr[2],
-            ClassRoom.from_str_with_location_and_name(Location.from_str(arr[3]), arr[4], arr[5]),
+            arr[3]
         )
 
     def __str__(self):
-        return f"Lesson(teacher='{self.teacher}', time={self.time}, classroom={self.classroom})"
+        return f"Lesson(teacher='{self.teacher}', time={self.time}, name='{self.name}')"
 
 
 def parse_object(s: str) -> BasicObject:
@@ -102,6 +102,15 @@ def parse_object(s: str) -> BasicObject:
 def parse_objects(s: str) -> list[BasicObject]:
     return [parse_object(x) for x in s.split("\n")]
 
+def get_unused_names(arr: list[BasicObject]) -> list[str]:
+    used = set()
+    unused = set()
+    for i in arr:
+        if isinstance(i, Lesson):
+            used.add(i.name)
+        elif isinstance(i, ClassRoom):
+            unused.add(i.name)
+    return list(unused - used)
 
 def main():
     print('Format: YY.MM.DD hh:mm "Teacher" "Location" Floor-Cabinet "Name"')
@@ -119,6 +128,7 @@ def main():
         print("Parse result:")
         for i in arr:
             print(i)
+        print("Free:", get_unused_names(arr))
 
 
 if __name__ == "__main__":

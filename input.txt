@@ -1,4 +1,4 @@
 Lesson 1985.12.01 13:45 "Alexey Y" "Borisova 5" 4-12
 Lesson  2018.01.30 15:45 "Vadim G" "Some_location 123" 4-10
 Location "Some location 123"
-ClassRoom 4-12
+ClassRoom "my location 456" 4-12

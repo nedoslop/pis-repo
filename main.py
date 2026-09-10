@@ -53,26 +53,26 @@ class Location(BasicObject):
 
 
 class ClassRoom(BasicObject):
-    def __init__(self, floor: int, cabinet: int):
+    def __init__(self, location: Location, floor: int, cabinet: int):
         self.floor = floor
         self.cabinet = cabinet
+        self.location = location
 
     @staticmethod
-    def from_str(s: str):
+    def from_str_with_location(loc: Location, s: str):
         spl = s.split("-")
-        return ClassRoom(int(spl[0]), int(spl[1]))
+        return ClassRoom(loc, int(spl[0]), int(spl[1]))
 
     def __str__(self):
-        return f"ClassRoom(floor={self.floor}, cabinet={self.cabinet})"
+        return f"ClassRoom(location={self.location}, floor={self.floor}, cabinet={self.cabinet})"
 
 
 class Lesson(BasicObject):
     def __init__(
-        self, time: datetime, teacher: str, location: Location, classroom: ClassRoom
+        self, time: datetime, teacher: str, classroom: ClassRoom
     ):
         self.time = time
         self.teacher = teacher
-        self.location = location
         self.classroom = classroom
 
     def from_str(s: str):
@@ -80,12 +80,11 @@ class Lesson(BasicObject):
         return Lesson(
             parse_date_time(arr[0] + " " + arr[1]),
             arr[2],
-            Location.from_str(arr[3]),
-            ClassRoom.from_str(arr[4]),
+            ClassRoom.from_str_with_location(Location.from_str(arr[3]), arr[4]),
         )
 
     def __str__(self):
-        return f"Lesson(teacher='{self.teacher}', time={self.time}, location={self.location}, classroom={self.classroom})"
+        return f"Lesson(teacher='{self.teacher}', time={self.time}, classroom={self.classroom})"
 
 
 def parse_object(s: str) -> BasicObject:
@@ -94,7 +93,8 @@ def parse_object(s: str) -> BasicObject:
     if s.startswith("Location "):
         return Location.from_str(s[9:])
     if s.startswith("ClassRoom "):
-        return ClassRoom.from_str(s[10:])
+        spl = split_str(s[10:])
+        return ClassRoom.from_str_with_location(Location.from_str(spl[0]), spl[1])
     return BasicObject()
 
 

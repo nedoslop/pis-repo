@@ -53,18 +53,19 @@ class Location(BasicObject):
 
 
 class ClassRoom(BasicObject):
-    def __init__(self, location: Location, floor: int, cabinet: int):
+    def __init__(self, location: Location, floor: int, cabinet: int, name: str):
         self.floor = floor
         self.cabinet = cabinet
         self.location = location
+        self.name = name
 
     @staticmethod
-    def from_str_with_location(loc: Location, s: str):
+    def from_str_with_location_and_name(loc: Location, s: str, name: str):
         spl = s.split("-")
-        return ClassRoom(loc, int(spl[0]), int(spl[1]))
+        return ClassRoom(loc, int(spl[0]), int(spl[1]), name)
 
     def __str__(self):
-        return f"ClassRoom(location={self.location}, floor={self.floor}, cabinet={self.cabinet})"
+        return f"ClassRoom(location={self.location}, floor={self.floor}, cabinet={self.cabinet}, name='{self.name}')"
 
 
 class Lesson(BasicObject):
@@ -80,7 +81,7 @@ class Lesson(BasicObject):
         return Lesson(
             parse_date_time(arr[0] + " " + arr[1]),
             arr[2],
-            ClassRoom.from_str_with_location(Location.from_str(arr[3]), arr[4]),
+            ClassRoom.from_str_with_location_and_name(Location.from_str(arr[3]), arr[4], arr[5]),
         )
 
     def __str__(self):
@@ -94,7 +95,7 @@ def parse_object(s: str) -> BasicObject:
         return Location.from_str(s[9:])
     if s.startswith("ClassRoom "):
         spl = split_str(s[10:])
-        return ClassRoom.from_str_with_location(Location.from_str(spl[0]), spl[1])
+        return ClassRoom.from_str_with_location_and_name(Location.from_str(spl[0]), spl[1], spl[2])
     return BasicObject()
 
 
@@ -103,7 +104,7 @@ def parse_objects(s: str) -> list[BasicObject]:
 
 
 def main():
-    print('Format: YY.MM.DD hh:mm "Teacher" "Location" Floor-Cabinet')
+    print('Format: YY.MM.DD hh:mm "Teacher" "Location" Floor-Cabinet "Name"')
     if False:
         print("Examples: ")
         print('1985.12.01 13:45 "Alexey Y" "Borisova 5" 4-12')

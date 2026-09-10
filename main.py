@@ -30,7 +30,15 @@ def split_str(s: str) -> list:
     return ret
 
 
-class Location:
+class BasicObject:
+    def __init__(self):
+        pass
+
+    def __str__(self):
+        return "Incorrect basic object"
+
+
+class Location(BasicObject):
     def __init__(self, street: str, num: int):
         self.street = street
         self.num = num
@@ -44,7 +52,7 @@ class Location:
         return f"Location(street='{self.street}', num={self.num})"
 
 
-class ClassRoom:
+class ClassRoom(BasicObject):
     def __init__(self, floor: int, cabinet: int):
         self.floor = floor
         self.cabinet = cabinet
@@ -58,7 +66,7 @@ class ClassRoom:
         return f"ClassRoom(floor={self.floor}, cabinet={self.cabinet})"
 
 
-class Lesson:
+class Lesson(BasicObject):
     def __init__(
         self, time: datetime, teacher: str, location: Location, classroom: ClassRoom
     ):
@@ -80,17 +88,17 @@ class Lesson:
         return f"Lesson(teacher='{self.teacher}', time={self.time}, location={self.location}, classroom={self.classroom})"
 
 
-def parse_object(s: str) -> any:
+def parse_object(s: str) -> BasicObject:
     if s.startswith("Lesson "):
         return Lesson.from_str(s[7:])
     if s.startswith("Location "):
         return Location.from_str(s[9:])
     if s.startswith("ClassRoom "):
         return ClassRoom.from_str(s[10:])
-    return None
+    return BasicObject()
 
 
-def parse_objects(s: str) -> list:
+def parse_objects(s: str) -> list[BasicObject]:
     return [parse_object(x) for x in s.split("\n")]
 
 
@@ -104,7 +112,9 @@ def main():
         print("\nEnter input string: ")
         print("\nResult:", Lesson.from_str(input()))
     if True:
-        arr = parse_objects(open("input.txt", encoding="utf-8").read())
+        arr: list[BasicObject] = parse_objects(
+            open("input.txt", encoding="utf-8").read()
+        )
         print("Parse result:")
         for i in arr:
             print(i)

@@ -1,0 +1,16 @@
+.vs
+.vscode
+__idea__
+pis-repo
+x64
+Debug
+Release
+*.exe
+*.dll
+*.so
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.xz

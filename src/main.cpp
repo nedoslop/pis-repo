@@ -52,7 +52,6 @@ struct MyDate {
             year = month = day = 0;
     }
 
-    private:
     friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {
         char buf[16];
         std::snprintf(buf, sizeof(buf), "%04d.%02d.%02d", self.year, self.month, self.day);

@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="pis-repo.vcxproj" />
+  <Project Path="pis-repo.vcxproj" Id="54364a0f-3ce3-43de-841e-672d60f8dea5" />
 </Solution>

@@ -51,9 +51,9 @@ struct MyDate {
             year = month = day = 0;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const MyDate& date) {
-        char buf[32];
-        std::snprintf(buf, sizeof(buf), "%04d.%02d.%02d", date.year, date.month, date.day);
+    friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {
+        char buf[16];
+        std::snprintf(buf, sizeof(buf), "%04d.%02d.%02d", self.year, self.month, self.day);
         return os << buf;
     }
 };
@@ -69,9 +69,9 @@ struct MyTime {
             hour = minute = 0;
     }
 
-    friend std::ostream& operator<<(std::ostream& os, const MyTime& time) {
-        char buf[32];
-        std::snprintf(buf, sizeof(buf), "%02d:%02d", time.hour, time.minute);
+    friend std::ostream& operator<<(std::ostream& os, const MyTime& self) {
+        char buf[8];
+        std::snprintf(buf, sizeof(buf), "%02d:%02d", self.hour, self.minute);
         return os << buf;
     }
 };
@@ -81,8 +81,8 @@ public:
     virtual ~BasicObject() = default;
     virtual std::ostream& print(std::ostream& os) const { return os << "Incorrect basic object"; }
 
-    friend std::ostream& operator<<(std::ostream& os, const BasicObject& obj) {
-        return obj.print(os);
+    friend std::ostream& operator<<(std::ostream& os, const BasicObject& self) {
+        return self.print(os);
     }
 };
 
@@ -199,18 +199,19 @@ static std::vector<std::string> get_unused_names(const std::vector<BasicObject*>
 int main(int argc, char* argv[]) {
     (void)argc;
     (void)argv;
+
     auto vec = parse_objects("input.txt");
 
-    std::cout << "Parse result:" << std::endl;
-    for (const auto* i : vec)
+    std::cout << "Parse result: " << std::endl;
+    for (const BasicObject* i : vec)
         std::cout << *i << std::endl;
     std::cout << std::endl;
 
-    std::cout << std::endl << "Unused:" << std::endl;
-    for (const auto& name : get_unused_names(vec))
+    std::cout << std::endl << "Unused: " << std::endl;
+    for (const std::string& name : get_unused_names(vec))
         std::cout << name << std::endl;
 
-    for (auto* i : vec)
+    for (BasicObject* i : vec)
         delete i;
 
     std::system("pause");

@@ -52,6 +52,7 @@ struct MyDate {
             year = month = day = 0;
     }
 
+    private:
     friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {
         char buf[16];
         std::snprintf(buf, sizeof(buf), "%04d.%02d.%02d", self.year, self.month, self.day);
@@ -80,11 +81,13 @@ struct MyTime {
 class BasicObject {
 public:
     virtual ~BasicObject() = default;
-    virtual std::ostream& print(std::ostream& os) const { return os << "Incorrect basic object"; }
 
     friend std::ostream& operator<<(std::ostream& os, const BasicObject& self) {
         return self.print(os);
     }
+
+private:
+    virtual std::ostream& print(std::ostream& os) const { return os << "Incorrect basic object"; }
 };
 
 class Location final : public BasicObject {
@@ -99,6 +102,7 @@ public:
         num = spl.size() > 1 ? try_parse_int(spl[1]).value_or(0) : 0;
     }
 
+private:
     std::ostream& print(std::ostream& os) const override {
         return os << "Location(street='" << street << "', num=" << num << ")";
     }
@@ -119,6 +123,7 @@ public:
         name = spl.size() > 1 ? spl[1] : "";
     }
 
+private:
     std::ostream& print(std::ostream& os) const override {
         return os << "ClassRoom(name='" << name << "', floor=" << floor << ", cabinet=" << cabinet
                   << ")";
@@ -142,6 +147,7 @@ public:
         name = spl.size() > 3 ? spl[3] : "";
     }
 
+private:
     std::ostream& print(std::ostream& os) const override {
         return os << "Lesson(teacher='" << teacher << "', name='" << name << "', date=" << date
                   << ", time=" << time << ")";

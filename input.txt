@@ -1,4 +1,4 @@
-Lesson 1985.12.01 13:45 "Alexey Y" "class name 1"
+Lesson 2010.12.01 13:45 "Alexey Y" "class name 1"
 Lesson  2018.01.30 15:45 "Vadim G" "class name 2"
 Lesson  2013.01.20 15:45 "Vadim E" "class name 3"
 Lesson  2018.02.10 15:45 "Vadim F" "class name 2"

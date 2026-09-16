@@ -45,10 +45,33 @@ struct MyDate {
     int month;
     int day;
 
+    static int max_days_in_month(int month) {
+        switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            return 31;
+        case 2:
+            return 29;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            return 30;
+        default:
+            return 0;
+        }
+    }
+
     MyDate() : year(0), month(0), day(0) {}
 
     MyDate(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d.%d.%d", &year, &month, &day) != 3)
+        if (std::sscanf(data.c_str(), "%d.%d.%d", &year, &month, &day) != 3 || year < 2000 ||
+            year > 2100 || month < 1 || month > 12 || day < 1 || day > max_days_in_month(month))
             year = month = day = 0;
     }
 
@@ -66,7 +89,8 @@ struct MyTime {
     MyTime() : hour(0), minute(0) {}
 
     MyTime(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d:%d", &hour, &minute) != 2)
+        if (std::sscanf(data.c_str(), "%d:%d", &hour, &minute) != 2 || hour < 0 || hour > 23 ||
+            minute < 0 || minute > 59)
             hour = minute = 0;
     }
 
@@ -117,7 +141,8 @@ public:
         : name(name), floor(floor), cabinet(cabinet) {}
     ClassRoom(std::string_view data) {
         auto spl = split_string(data);
-        if (spl.size() < 1 || std::sscanf(spl[0].c_str(), "%d-%d", &floor, &cabinet) != 2)
+        if (spl.size() < 1 || std::sscanf(spl[0].c_str(), "%d-%d", &floor, &cabinet) != 2 ||
+            floor < 1 || cabinet < 1)
             floor = cabinet = 0;
         name = spl.size() > 1 ? spl[1] : "";
     }

@@ -70,9 +70,13 @@ struct MyDate {
     MyDate() : year(0), month(0), day(0) {}
 
     MyDate(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d.%d.%d", &year, &month, &day) != 3 || year < 2000 ||
-            year > 2100 || month < 1 || month > 12 || day < 1 || day > max_days_in_month(month))
-            year = month = day = 0;
+        if (std::sscanf(data.c_str(), "%d.%d.%d", &year, &month, &day) != 3 || !is_valid())
+            year = month = day = -1;
+    }
+
+    bool is_valid() {
+        return year >= 2000 && year < 2100 && month >= 1 && month <= 12 && day >= 1 &&
+               day <= max_days_in_month(month);
     }
 
     friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {
@@ -89,10 +93,11 @@ struct MyTime {
     MyTime() : hour(0), minute(0) {}
 
     MyTime(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d:%d", &hour, &minute) != 2 || hour < 0 || hour > 23 ||
-            minute < 0 || minute > 59)
-            hour = minute = 0;
+        if (std::sscanf(data.c_str(), "%d:%d", &hour, &minute) != 2 || !is_valid())
+            hour = minute = -1;
     }
+
+    bool is_valid() { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }
 
     friend std::ostream& operator<<(std::ostream& os, const MyTime& self) {
         char buf[8];
@@ -110,7 +115,7 @@ public:
     }
 
 private:
-    virtual std::ostream& print(std::ostream& os) const { return os << "Incorrect basic object"; }
+    virtual std::ostream& print(std::ostream& os) const = 0;
 };
 
 class Location final : public BasicObject {
@@ -124,6 +129,8 @@ public:
         street = spl.size() > 0 ? spl[0] : "";
         num = spl.size() > 1 ? try_parse_int(spl[1]).value_or(0) : 0;
     }
+
+    bool is_valid() { return !street.empty() && num > 0; }
 
 private:
     std::ostream& print(std::ostream& os) const override {
@@ -141,11 +148,13 @@ public:
         : name(name), floor(floor), cabinet(cabinet) {}
     ClassRoom(std::string_view data) {
         auto spl = split_string(data);
-        if (spl.size() < 1 || std::sscanf(spl[0].c_str(), "%d-%d", &floor, &cabinet) != 2 ||
-            floor < 1 || cabinet < 1)
-            floor = cabinet = 0;
         name = spl.size() > 1 ? spl[1] : "";
+        if (spl.size() < 1 || std::sscanf(spl[0].c_str(), "%d-%d", &floor, &cabinet) != 2 ||
+            !is_valid())
+            floor = cabinet = 0;
     }
+
+    bool is_valid() { return !name.empty() && floor > 0 && cabinet > 0; }
 
 private:
     std::ostream& print(std::ostream& os) const override {
@@ -171,6 +180,10 @@ public:
         name = spl.size() > 3 ? spl[3] : "";
     }
 
+    bool is_valid() {
+        return date.is_valid() && time.is_valid() && !teacher.empty() && !name.empty();
+    }
+
 private:
     std::ostream& print(std::ostream& os) const override {
         return os << "Lesson(teacher='" << teacher << "', name='" << name << "', date=" << date
@@ -178,15 +191,22 @@ private:
     }
 };
 
-static BasicObject* parse_object(std::string_view s) {
-    if (s.starts_with("Lesson "))
-        return new Lesson(s.substr(7));
-    else if (s.starts_with("Location "))
-        return new Location(s.substr(9));
-    else if (s.starts_with("ClassRoom "))
-        return new ClassRoom(s.substr(10));
+template <typename T> static std::optional<BasicObject*> filter_valid_object(T* obj) {
+    if (obj->is_valid())
+        return obj;
+    delete obj;
+    return std::nullopt;
+}
+
+static std::optional<BasicObject*> parse_object(std::string_view s) {
+    if (s.starts_with("Lesson ")) {
+        return filter_valid_object(new Lesson(s.substr(7)));
+    } else if (s.starts_with("Location ")) {
+        return filter_valid_object(new Location(s.substr(9)));
+    } else if (s.starts_with("ClassRoom "))
+        return filter_valid_object(new ClassRoom(s.substr(10)));
     else
-        return new BasicObject();
+        return std::nullopt;
 }
 
 static std::vector<BasicObject*> parse_objects(const std::string& fp) {
@@ -198,7 +218,9 @@ static std::vector<BasicObject*> parse_objects(const std::string& fp) {
     std::string line;
     while (std::getline(file, line)) {
         if (!line.empty()) {
-            res.push_back(parse_object(line));
+            auto obj = parse_object(line);
+            if (obj.has_value())
+                res.push_back(obj.value());
         }
     }
 

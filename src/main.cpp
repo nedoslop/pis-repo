@@ -45,7 +45,7 @@ struct MyDate {
     int month;
     int day;
 
-    static int max_days_in_month(int month) {
+    static int max_days_in_month(int year, int month) {
         switch (month) {
         case 1:
         case 3:
@@ -55,13 +55,14 @@ struct MyDate {
         case 10:
         case 12:
             return 31;
-        case 2:
-            return 29;
         case 4:
         case 6:
         case 9:
         case 11:
             return 30;
+        case 2:
+            // Check if year is leap
+            return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 29 : 28;
         default:
             return 0;
         }
@@ -76,7 +77,7 @@ struct MyDate {
 
     bool is_valid() {
         return year >= 2000 && year < 2100 && month >= 1 && month <= 12 && day >= 1 &&
-               day <= max_days_in_month(month);
+               day <= max_days_in_month(year, month);
     }
 
     friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {

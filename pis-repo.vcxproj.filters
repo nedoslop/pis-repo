@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="unittest-cpp">
+      <UniqueIdentifier>{44129a49-174e-4242-b8f5-62877c7cf012}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -35,6 +38,69 @@
     </ClCompile>
     <ClCompile Include="src\location.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\AssertException.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\Checks.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\CompositeTestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\CurrentTest.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\DeferredTestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\DeferredTestResult.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\MemoryOutStream.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\ReportAssert.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\RequiredCheckException.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\RequiredCheckTestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\Test.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestDetails.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestList.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestReporterStdout.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestResults.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TestRunner.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\ThrowingTestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\TimeConstraint.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\XmlTestReporter.cpp">
+      <Filter>unittest-cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="unittest-cpp\UnitTest++\Win32\TimeHelpers.cpp">
+      <Filter>unittest-cpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,5 +125,109 @@
     <ClInclude Include="src\location.hpp">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\AssertException.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\CheckMacros.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\Checks.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\CompositeTestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\Config.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\CurrentTest.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\DeferredTestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\DeferredTestResult.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\ExceptionMacros.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\ExecuteTest.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\HelperMacros.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\MemoryOutStream.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\ReportAssert.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\ReportAssertImpl.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\RequiredCheckException.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\RequiredCheckTestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\RequireMacros.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\Test.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestDetails.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestList.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestMacros.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestReporterStdout.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestResults.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestRunner.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TestSuite.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\ThrowingTestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TimeConstraint.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\TimeHelpers.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\UnitTest++.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\UnitTestPP.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\XmlTestReporter.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="unittest-cpp\UnitTest++\Win32\TimeHelpers.h">
+      <Filter>unittest-cpp</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="unittest-cpp\UnitTest++\Makefile.am">
+      <Filter>unittest-cpp</Filter>
+    </None>
   </ItemGroup>
 </Project>

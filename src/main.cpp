@@ -71,10 +71,82 @@ static std::vector<std::string> get_unused_names(const std::vector<BasicObject*>
     return ret;
 }
 
-int main(int argc, char* argv[]) {
-    (void)argc;
-    (void)argv;
+#if 1
+#include <UnitTest++/UnitTest++.h>
 
+TEST(MyDateTest) {
+    MyDate date1("2024.08.11");
+    CHECK_EQUAL(true, date1.is_valid());
+    CHECK_EQUAL(11, date1.day);
+    CHECK_EQUAL(8, date1.month);
+    CHECK_EQUAL(2024, date1.year);
+
+    MyDate date2("2024.08.34");
+    CHECK_EQUAL(false, date2.is_valid());
+
+    MyDate date3(" gfdgdfgdfg 1241.08.34");
+    CHECK_EQUAL(false, date3.is_valid());
+}
+
+TEST(MyTimeTest) {
+    MyTime time1("11:52");
+    CHECK_EQUAL(true, time1.is_valid());
+    CHECK_EQUAL(11, time1.hour);
+    CHECK_EQUAL(52, time1.minute);
+
+    MyTime time2("11:67");
+    CHECK_EQUAL(false, time2.is_valid());
+
+    MyTime time3("2024.08.34");
+    CHECK_EQUAL(false, time3.is_valid());
+}
+
+TEST(ClassRoomTest) {
+    ClassRoom cl1("2-13 \"class name 2\"");
+    CHECK_EQUAL(true, cl1.is_valid());
+    CHECK_EQUAL(2, cl1.floor);
+    CHECK_EQUAL(13, cl1.cabinet);
+    CHECK_EQUAL("class name 2", cl1.name);
+
+    ClassRoom cl2("-2-13 \"class name 2\"");
+    CHECK_EQUAL(false, cl2.is_valid());
+
+    ClassRoom cl3("2-13");
+    CHECK_EQUAL(false, cl3.is_valid());
+}
+
+TEST(LessonTest) {
+    Lesson l1("2010.12.01 13:45 \"Alexey Y\" \"class name 1\"");
+    CHECK_EQUAL(true, l1.is_valid());
+    CHECK_EQUAL(MyDate("2010.12.01"), l1.date);
+    CHECK_EQUAL(MyTime("13:45"), l1.time);
+    CHECK_EQUAL(MyTime("Alexey Y"), l1.teacher);
+    CHECK_EQUAL(MyTime("class name 1"), l1.name);
+
+    Lesson l2("22144.12.01 13:45 \"Alexey Y\" \"class name 1\"");
+    CHECK_EQUAL(false, l2.is_valid());
+
+    Lesson l3("13:45 \"Alexey Y\" \"class name 1\"");
+    CHECK_EQUAL(false, l3.is_valid());
+}
+
+TEST(LocationTest) {
+    Location l1("\"Some location\" 13");
+    CHECK_EQUAL(true, l1.is_valid());
+    CHECK_EQUAL("Some location", l1.street);
+    CHECK_EQUAL(13, l1.num);
+
+    Location l2("\"Some location\" 0");
+    CHECK_EQUAL(false, l2.is_valid());
+
+    Location l3("123");
+    CHECK_EQUAL(false, l3.is_valid());
+}
+
+int main(int, const char*[]) { return UnitTest::RunAllTests(); }
+
+#else
+int main(int argc, char* argv[]) {
     auto vec = parse_objects("input.txt");
 
     std::cout << "Parse result: " << std::endl;
@@ -92,3 +164,4 @@ int main(int argc, char* argv[]) {
     std::system("pause");
     return 0;
 }
+#endif

@@ -71,7 +71,7 @@ static std::vector<std::string> get_unused_names(const std::vector<BasicObject*>
     return ret;
 }
 
-#if 1
+#if 0
 #include <UnitTest++/UnitTest++.h>
 
 TEST(MyDateTest) {

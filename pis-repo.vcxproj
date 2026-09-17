@@ -143,7 +143,6 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\basic_object.cpp" />
     <ClCompile Include="src\classroom.cpp" />
     <ClCompile Include="src\lesson.cpp" />
     <ClCompile Include="src\location.cpp" />

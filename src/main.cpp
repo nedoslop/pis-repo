@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <algorithm>
-#include <charconv>
 #include <fstream>
 #include <iostream>
 #include <optional>
@@ -8,73 +7,8 @@
 #include <string_view>
 #include <vector>
 #include "utils.hpp"
-
-struct MyDate {
-    int year;
-    int month;
-    int day;
-
-    static int max_days_in_month(int year, int month) {
-        switch (month) {
-        case 1:
-        case 3:
-        case 5:
-        case 7:
-        case 8:
-        case 10:
-        case 12:
-            return 31;
-        case 4:
-        case 6:
-        case 9:
-        case 11:
-            return 30;
-        case 2:
-            // Check if year is leap
-            return ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) ? 29 : 28;
-        default:
-            return 0;
-        }
-    }
-
-    MyDate() : year(0), month(0), day(0) {}
-
-    MyDate(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d.%d.%d", &year, &month, &day) != 3 || !is_valid())
-            year = month = day = -1;
-    }
-
-    bool is_valid() {
-        return year >= 2000 && year < 2100 && month >= 1 && month <= 12 && day >= 1 &&
-               day <= max_days_in_month(year, month);
-    }
-
-    friend std::ostream& operator<<(std::ostream& os, const MyDate& self) {
-        char buf[16];
-        std::snprintf(buf, sizeof(buf), "%04d.%02d.%02d", self.year, self.month, self.day);
-        return os << buf;
-    }
-};
-
-struct MyTime {
-    int hour;
-    int minute;
-
-    MyTime() : hour(0), minute(0) {}
-
-    MyTime(const std::string& data) {
-        if (std::sscanf(data.c_str(), "%d:%d", &hour, &minute) != 2 || !is_valid())
-            hour = minute = -1;
-    }
-
-    bool is_valid() { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }
-
-    friend std::ostream& operator<<(std::ostream& os, const MyTime& self) {
-        char buf[8];
-        std::snprintf(buf, sizeof(buf), "%02d:%02d", self.hour, self.minute);
-        return os << buf;
-    }
-};
+#include "mydate.hpp"
+#include "mytime.hpp"
 
 class BasicObject {
 public:

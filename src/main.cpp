@@ -141,6 +141,9 @@ TEST(LocationTest) {
 
     Location l3("123");
     CHECK_EQUAL(false, l3.is_valid());
+
+    Location l4("\"test loc\"");
+    CHECK_EQUAL(false, l4.is_valid());
 }
 
 int main(int, const char*[]) { return UnitTest::RunAllTests(); }

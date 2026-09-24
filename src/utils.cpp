@@ -33,4 +33,18 @@ std::optional<int> try_parse_int(std::string_view s) {
 
     return std::nullopt;
 }
+
+std::string join_string_vec(std::vector<std::string> vec) {
+    if (vec.empty())
+        return "";
+    std::string ret;
+    auto it = vec.begin();
+    ret += *it;
+    it++;
+    for (; it != vec.end(); it++) {
+        ret += ", ";
+        ret += *it;
+    }
+    return ret;
+}
 } // namespace utils

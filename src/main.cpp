@@ -150,21 +150,58 @@ int main(int, const char*[]) { return UnitTest::RunAllTests(); }
 
 #else
 int main(int argc, char* argv[]) {
-    auto vec = parse_objects("input.txt");
+    std::vector<BasicObject*> vec;
+    while (1) {
+        std::system("cls");
+        std::cout << "0. Exit " << std::endl;
+        std::cout << "1. Add from str " << std::endl;
+        std::cout << "2. Show " << std::endl;
+        std::cout << "3. Add from file " << std::endl;
+        std::cout << "Your choice: ";
+        std::string choice;
+        std::getline(std::cin, choice);
+        if (choice.empty())
+            continue;
+        switch (choice[0]) {
+        case '0': {
+            std::cout << std::endl;
+            return 0;
+        }
+        case '1': {
+            std::cout << std::endl;
+            std::cout << "Enter string: ";
+            std::getline(std::cin, choice);
+            if (auto opt = parse_object(choice))
+                vec.push_back(opt.value());
+            else
+                std::cout << "ERROR!" << std::endl;
+            std::system("pause");
+            break;
+        }
+        case '2': {
+            std::cout << std::endl;
+            std::cout << "Parse result: " << std::endl;
+            for (const BasicObject* i : vec)
+                std::cout << *i << std::endl;
+            std::cout << std::endl;
 
-    std::cout << "Parse result: " << std::endl;
-    for (const BasicObject* i : vec)
-        std::cout << *i << std::endl;
-    std::cout << std::endl;
-
-    std::cout << std::endl << "Unused: " << std::endl;
-    for (const std::string& name : get_unused_names(vec))
-        std::cout << name << std::endl;
+            std::cout << std::endl << "Unused: " << std::endl;
+            for (const std::string& name : get_unused_names(vec))
+                std::cout << name << std::endl;
+            std::system("pause");
+            break;
+        }
+        case '3': {
+            auto need = parse_objects("input.txt");
+            vec.insert(vec.end(), need.begin(), need.end());
+            break;
+        }
+        }
+    }
 
     for (BasicObject* i : vec)
         delete i;
 
-    std::system("pause");
     return 0;
 }
 #endif

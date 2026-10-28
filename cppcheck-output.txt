@@ -1,0 +1,65 @@
+src/classroom.cpp:17:17: style: inconclusive: Technically the member function 'ClassRoom::is_valid' can be const. [functionConst]
+bool ClassRoom::is_valid() { return !name.empty() && floor > 0 && cabinet > 0; }
+                ^
+src/classroom.hpp:13:10: note: Technically the member function 'ClassRoom::is_valid' can be const.
+    bool is_valid();
+         ^
+src/classroom.cpp:17:17: note: Technically the member function 'ClassRoom::is_valid' can be const.
+bool ClassRoom::is_valid() { return !name.empty() && floor > 0 && cabinet > 0; }
+                ^
+src/classroom.hpp:12:5: style: Class 'ClassRoom' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    ClassRoom(std::string_view data);
+    ^
+src/mydate.hpp:11:5: style: Struct 'MyDate' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    MyDate(const std::string& data);
+    ^
+src/mytime.hpp:10:5: style: Struct 'MyTime' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    MyTime(const std::string& data);
+    ^
+src/lesson.hpp:15:5: style: Class 'Lesson' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Lesson(std::string_view data);
+    ^
+src/location.cpp:12:16: style: inconclusive: Technically the member function 'Location::is_valid' can be const. [functionConst]
+bool Location::is_valid() { return !street.empty() && num > 0; }
+               ^
+src/location.hpp:11:10: note: Technically the member function 'Location::is_valid' can be const.
+    bool is_valid();
+         ^
+src/location.cpp:12:16: note: Technically the member function 'Location::is_valid' can be const.
+bool Location::is_valid() { return !street.empty() && num > 0; }
+               ^
+src/location.hpp:10:5: style: Class 'Location' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
+    Location(std::string_view data);
+    ^
+src/main.cpp:153:67: performance: Function parameter 'inp' should be passed by const reference. [passedByValue]
+static std::pair<std::string, std::string> split_pair(std::string inp) {
+                                                                  ^
+src/main.cpp:196:27: style: Variable 'f' can be declared as reference to const [constVariableReference]
+        for (std::string& f : q) {
+                          ^
+src/mydate.cpp:34:14: style: inconclusive: Technically the member function 'MyDate::is_valid' can be const. [functionConst]
+bool MyDate::is_valid() {
+             ^
+src/mydate.hpp:12:10: note: Technically the member function 'MyDate::is_valid' can be const.
+    bool is_valid();
+         ^
+src/mydate.cpp:34:14: note: Technically the member function 'MyDate::is_valid' can be const.
+bool MyDate::is_valid() {
+             ^
+src/mytime.cpp:11:14: style: inconclusive: Technically the member function 'MyTime::is_valid' can be const. [functionConst]
+bool MyTime::is_valid() { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }
+             ^
+src/mytime.hpp:11:10: note: Technically the member function 'MyTime::is_valid' can be const.
+    bool is_valid();
+         ^
+src/mytime.cpp:11:14: note: Technically the member function 'MyTime::is_valid' can be const.
+bool MyTime::is_valid() { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }
+             ^
+src/utils.cpp:37:54: performance: Function parameter 'vec' should be passed by const reference. [passedByValue]
+std::string join_string_vec(std::vector<std::string> vec) {
+                                                     ^
+src/main.cpp:172:6: style: The function 'do_graph_task' is never used. [unusedFunction]
+void do_graph_task() {
+     ^
+nofile:0:0: information: Active checkers: 186/189 (use --checkers-report=<filename> to see details) [checkersReport]
+

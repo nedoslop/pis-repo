@@ -5,7 +5,9 @@ pis-repo
 x64
 Debug
 Release
+temp
 *.exe
+*.out
 *.dll
 *.so
 *.zip

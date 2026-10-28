@@ -213,11 +213,15 @@ void do_graph_task() {
 int main(int argc, char* argv[]) {
     std::vector<BasicObject*> vec;
 
-    do_graph_task();
-    return 0;
+    // do_graph_task();
+    // return 0;
 
     while (1) {
+#ifdef _WIN32
         std::system("cls");
+#else
+        std::system("clear");
+#endif
         std::cout << "0. Exit " << std::endl;
         std::cout << "1. Add from str " << std::endl;
         std::cout << "2. Show " << std::endl;

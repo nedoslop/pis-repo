@@ -1,0 +1,263 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+ no time accumulated
+
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+  0.00      0.00     0.00       29     0.00     0.00  void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00       12     0.00     0.00  parse_object(std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00       12     0.00     0.00  utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00       12     0.00     0.00  __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > std::find<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00       10     0.00     0.00  MyDate::is_valid()
+  0.00      0.00     0.00        5     0.00     0.00  Lesson::is_valid()
+  0.00      0.00     0.00        5     0.00     0.00  Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00        5     0.00     0.00  MyDate::MyDate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00        5     0.00     0.00  MyDate::MyDate()
+  0.00      0.00     0.00        5     0.00     0.00  MyTime::is_valid()
+  0.00      0.00     0.00        5     0.00     0.00  MyTime::MyTime(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00        5     0.00     0.00  MyTime::MyTime()
+  0.00      0.00     0.00        5     0.00     0.00  ClassRoom::is_valid()
+  0.00      0.00     0.00        5     0.00     0.00  ClassRoom::ClassRoom(std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00        5     0.00     0.00  Lesson::print(std::ostream&) const
+  0.00      0.00     0.00        5     0.00     0.00  ClassRoom::print(std::ostream&) const
+  0.00      0.00     0.00        2     0.00     0.00  utils::try_parse_int(std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00        2     0.00     0.00  Location::is_valid()
+  0.00      0.00     0.00        2     0.00     0.00  Location::Location(std::basic_string_view<char, std::char_traits<char> >)
+  0.00      0.00     0.00        2     0.00     0.00  Location::print(std::ostream&) const
+  0.00      0.00     0.00        2     0.00     0.00  std::_Vector_base<BasicObject*, std::allocator<BasicObject*> >::~_Vector_base()
+  0.00      0.00     0.00        2     0.00     0.00  std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  0.00      0.00     0.00        2     0.00     0.00  std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose()
+  0.00      0.00     0.00        1     0.00     0.00  std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~vector()
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2025 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) no time propagated
+
+index % time    self  children    called     name
+                0.00    0.00      29/29          utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [10]
+[8]      0.0    0.00    0.00      29         void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [8]
+-----------------------------------------------
+                0.00    0.00      12/12          main [6]
+[9]      0.0    0.00    0.00      12         parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+                0.00    0.00       5/5           Lesson::is_valid() [13]
+                0.00    0.00       5/5           Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+                0.00    0.00       5/5           ClassRoom::ClassRoom(std::basic_string_view<char, std::char_traits<char> >) [21]
+                0.00    0.00       5/5           ClassRoom::is_valid() [20]
+                0.00    0.00       2/2           Location::Location(std::basic_string_view<char, std::char_traits<char> >) [26]
+                0.00    0.00       2/2           Location::is_valid() [25]
+-----------------------------------------------
+                0.00    0.00       2/12          Location::Location(std::basic_string_view<char, std::char_traits<char> >) [26]
+                0.00    0.00       5/12          ClassRoom::ClassRoom(std::basic_string_view<char, std::char_traits<char> >) [21]
+                0.00    0.00       5/12          Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+[10]     0.0    0.00    0.00      12         utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [10]
+                0.00    0.00      29/29          void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [8]
+-----------------------------------------------
+                0.00    0.00      12/12          main [6]
+[11]     0.0    0.00    0.00      12         __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > std::find<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [11]
+-----------------------------------------------
+                0.00    0.00       5/10          Lesson::is_valid() [13]
+                0.00    0.00       5/10          MyDate::MyDate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [15]
+[12]     0.0    0.00    0.00      10         MyDate::is_valid() [12]
+-----------------------------------------------
+                0.00    0.00       5/5           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[13]     0.0    0.00    0.00       5         Lesson::is_valid() [13]
+                0.00    0.00       5/10          MyDate::is_valid() [12]
+                0.00    0.00       5/5           MyTime::is_valid() [17]
+-----------------------------------------------
+                0.00    0.00       5/5           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[14]     0.0    0.00    0.00       5         Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+                0.00    0.00       5/5           MyDate::MyDate() [16]
+                0.00    0.00       5/12          utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [10]
+                0.00    0.00       5/5           MyTime::MyTime() [19]
+                0.00    0.00       5/5           MyDate::MyDate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [15]
+                0.00    0.00       5/5           MyTime::MyTime(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [18]
+-----------------------------------------------
+                0.00    0.00       5/5           Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+[15]     0.0    0.00    0.00       5         MyDate::MyDate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [15]
+                0.00    0.00       5/10          MyDate::is_valid() [12]
+-----------------------------------------------
+                0.00    0.00       5/5           Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+[16]     0.0    0.00    0.00       5         MyDate::MyDate() [16]
+-----------------------------------------------
+                0.00    0.00       5/5           Lesson::is_valid() [13]
+[17]     0.0    0.00    0.00       5         MyTime::is_valid() [17]
+-----------------------------------------------
+                0.00    0.00       5/5           Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+[18]     0.0    0.00    0.00       5         MyTime::MyTime(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [18]
+-----------------------------------------------
+                0.00    0.00       5/5           Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [14]
+[19]     0.0    0.00    0.00       5         MyTime::MyTime() [19]
+-----------------------------------------------
+                0.00    0.00       5/5           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[20]     0.0    0.00    0.00       5         ClassRoom::is_valid() [20]
+-----------------------------------------------
+                0.00    0.00       5/5           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[21]     0.0    0.00    0.00       5         ClassRoom::ClassRoom(std::basic_string_view<char, std::char_traits<char> >) [21]
+                0.00    0.00       5/12          utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [10]
+-----------------------------------------------
+                0.00    0.00       5/5           main [6]
+[22]     0.0    0.00    0.00       5         Lesson::print(std::ostream&) const [22]
+-----------------------------------------------
+                0.00    0.00       5/5           main [6]
+[23]     0.0    0.00    0.00       5         ClassRoom::print(std::ostream&) const [23]
+-----------------------------------------------
+                0.00    0.00       2/2           Location::Location(std::basic_string_view<char, std::char_traits<char> >) [26]
+[24]     0.0    0.00    0.00       2         utils::try_parse_int(std::basic_string_view<char, std::char_traits<char> >) [24]
+-----------------------------------------------
+                0.00    0.00       2/2           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[25]     0.0    0.00    0.00       2         Location::is_valid() [25]
+-----------------------------------------------
+                0.00    0.00       2/2           parse_object(std::basic_string_view<char, std::char_traits<char> >) [9]
+[26]     0.0    0.00    0.00       2         Location::Location(std::basic_string_view<char, std::char_traits<char> >) [26]
+                0.00    0.00       2/12          utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [10]
+                0.00    0.00       2/2           utils::try_parse_int(std::basic_string_view<char, std::char_traits<char> >) [24]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[27]     0.0    0.00    0.00       2         Location::print(std::ostream&) const [27]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[28]     0.0    0.00    0.00       2         std::_Vector_base<BasicObject*, std::allocator<BasicObject*> >::~_Vector_base() [28]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[29]     0.0    0.00    0.00       2         std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [29]
+-----------------------------------------------
+                0.00    0.00       2/2           main [6]
+[30]     0.0    0.00    0.00       2         std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose() [30]
+-----------------------------------------------
+                0.00    0.00       1/1           main [6]
+[31]     0.0    0.00    0.00       1         std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~vector() [31]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2025 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+   [9] parse_object(std::basic_string_view<char, std::char_traits<char> >) [17] MyTime::is_valid() [27] Location::print(std::ostream&) const
+  [10] utils::split_string[abi:cxx11](std::basic_string_view<char, std::char_traits<char> >) [18] MyTime::MyTime(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [23] ClassRoom::print(std::ostream&) const
+  [24] utils::try_parse_int(std::basic_string_view<char, std::char_traits<char> >) [19] MyTime::MyTime() [28] std::_Vector_base<BasicObject*, std::allocator<BasicObject*> >::~_Vector_base()
+  [13] Lesson::is_valid()     [25] Location::is_valid()    [8] void std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_realloc_append<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&>(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [14] Lesson::Lesson(std::basic_string_view<char, std::char_traits<char> >) [26] Location::Location(std::basic_string_view<char, std::char_traits<char> >) [29] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::push_back(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+  [12] MyDate::is_valid()     [20] ClassRoom::is_valid()  [31] std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::~vector()
+  [15] MyDate::MyDate(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [21] ClassRoom::ClassRoom(std::basic_string_view<char, std::char_traits<char> >) [30] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_dispose()
+  [16] MyDate::MyDate()       [22] Lesson::print(std::ostream&) const [11] __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > > std::find<__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, __gnu_cxx::__normal_iterator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)

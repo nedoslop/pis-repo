@@ -1,0 +1,33 @@
+==7824== 
+==7824== HEAP SUMMARY:
+==7824==     in use at exit: 816 bytes in 12 blocks
+==7824==   total heap usage: 58 allocs, 46 frees, 87,762 bytes allocated
+==7824== 
+==7824== 96 bytes in 2 blocks are definitely lost in loss record 1 of 3
+==7824==    at 0x485CF3F: operator new(unsigned long) (vg_replace_malloc.c:487)
+==7824==    by 0x4006D0B: parse_object(std::basic_string_view<char, std::char_traits<char> >) (main.cpp:28)
+==7824==    by 0x4006FAA: parse_objects(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (main.cpp:44)
+==7824==    by 0x40084A3: main (main.cpp:264)
+==7824== 
+==7824== 240 bytes in 5 blocks are definitely lost in loss record 2 of 3
+==7824==    at 0x485CF3F: operator new(unsigned long) (vg_replace_malloc.c:487)
+==7824==    by 0x4006D97: parse_object(std::basic_string_view<char, std::char_traits<char> >) (main.cpp:30)
+==7824==    by 0x4006FAA: parse_objects(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (main.cpp:44)
+==7824==    by 0x40084A3: main (main.cpp:264)
+==7824== 
+==7824== 480 bytes in 5 blocks are definitely lost in loss record 3 of 3
+==7824==    at 0x485CF3F: operator new(unsigned long) (vg_replace_malloc.c:487)
+==7824==    by 0x4006C7F: parse_object(std::basic_string_view<char, std::char_traits<char> >) (main.cpp:26)
+==7824==    by 0x4006FAA: parse_objects(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (main.cpp:44)
+==7824==    by 0x40084A3: main (main.cpp:264)
+==7824== 
+==7824== LEAK SUMMARY:
+==7824==    definitely lost: 816 bytes in 12 blocks
+==7824==    indirectly lost: 0 bytes in 0 blocks
+==7824==      possibly lost: 0 bytes in 0 blocks
+==7824==    still reachable: 0 bytes in 0 blocks
+==7824==         suppressed: 0 bytes in 0 blocks
+==7824== 
+==7824== For lists of detected and suppressed errors, rerun with: -s
+==7824== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)
+

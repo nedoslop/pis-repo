@@ -1,7 +1,0 @@
-PROJECT_NAME           = "PIS C++ project"
-OUTPUT_DIRECTORY       = ./docs
-INPUT                  = ./src
-RECURSIVE              = YES
-EXTRACT_ALL            = YES
-GENERATE_HTML          = YES
-GENERATE_LATEX         = NO

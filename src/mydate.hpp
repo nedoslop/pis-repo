@@ -2,6 +2,10 @@
 #include <ostream>
 #include <string>
 
+/**
+ * @class MyDate
+ * @brief Keeps year, month and day
+ */
 struct MyDate {
     int year;
     int month;

@@ -2,6 +2,10 @@
 #include <ostream>
 #include <string>
 
+/**
+ * @class MyTime
+ * @brief Keeps hour and minute
+ */
 struct MyTime {
     int hour;
     int minute;

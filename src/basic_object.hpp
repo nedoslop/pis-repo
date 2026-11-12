@@ -1,6 +1,10 @@
 #pragma once
 #include <ostream>
 
+/**
+ * @class BasicObject
+ * @brief Just a parent object
+ */
 class BasicObject {
 public:
     virtual ~BasicObject() = default;

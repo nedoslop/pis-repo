@@ -6,6 +6,7 @@ x64
 Debug
 Release
 temp
+html
 *.exe
 *.out
 *.dll

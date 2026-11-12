@@ -1,6 +1,10 @@
 #pragma once
 #include "basic_object.hpp"
 
+/**
+ * @class Location
+ * @brief Keeps street and house number
+ */
 class Location final : public BasicObject {
 public:
     std::string street;

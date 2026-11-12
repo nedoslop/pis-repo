@@ -4,6 +4,10 @@
 #include "mydate.hpp"
 #include "mytime.hpp"
 
+/**
+ * @class Lesson
+ * @brief Keeps teacher, name, date and time
+ */
 class Lesson final : public BasicObject {
 public:
     std::string teacher;

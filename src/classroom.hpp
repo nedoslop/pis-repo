@@ -2,6 +2,10 @@
 #include <string_view>
 #include "basic_object.hpp"
 
+/**
+ * @class ClassRoom
+ * @brief Class which keeps name, floor and cabinet
+ */
 class ClassRoom final : public BasicObject {
 public:
     std::string name;

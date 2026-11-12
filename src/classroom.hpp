@@ -10,7 +10,7 @@ public:
 
     ClassRoom(std::string_view name, int floor, int cabinet);
     ClassRoom(std::string_view data);
-    bool is_valid();
+    bool is_valid() const;
 
 private:
     std::ostream& print(std::ostream& os) const override;

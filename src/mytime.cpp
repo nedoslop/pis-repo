@@ -8,4 +8,4 @@ MyTime::MyTime(const std::string& data) {
         hour = minute = -1;
 }
 
-bool MyTime::is_valid() { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }
+bool MyTime::is_valid() const { return hour >= 0 && hour < 24 && minute >= 0 && minute < 60; }

@@ -8,7 +8,7 @@ struct MyTime {
 
     MyTime();
     MyTime(const std::string& data);
-    bool is_valid();
+    bool is_valid() const;
 
     inline bool operator==(const MyTime& other) const {
         return hour == other.hour && minute == other.minute;

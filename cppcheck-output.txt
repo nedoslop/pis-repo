@@ -10,15 +10,6 @@ bool ClassRoom::is_valid() { return !name.empty() && floor > 0 && cabinet > 0; }
 src/classroom.hpp:12:5: style: Class 'ClassRoom' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
     ClassRoom(std::string_view data);
     ^
-src/mydate.hpp:11:5: style: Struct 'MyDate' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
-    MyDate(const std::string& data);
-    ^
-src/mytime.hpp:10:5: style: Struct 'MyTime' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
-    MyTime(const std::string& data);
-    ^
-src/lesson.hpp:15:5: style: Class 'Lesson' has a constructor with 1 argument that is not explicit. [noExplicitConstructor]
-    Lesson(std::string_view data);
-    ^
 src/location.cpp:12:16: style: inconclusive: Technically the member function 'Location::is_valid' can be const. [functionConst]
 bool Location::is_valid() { return !street.empty() && num > 0; }
                ^

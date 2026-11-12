@@ -9,7 +9,7 @@ Location::Location(std::string_view data) {
     num = spl.size() > 1 ? utils::try_parse_int(spl[1]).value_or(0) : 0;
 }
 
-bool Location::is_valid() { return !street.empty() && num > 0; }
+bool Location::is_valid() const { return !street.empty() && num > 0; }
 
 std::ostream& Location::print(std::ostream& os) const {
     return os << "Location(street='" << street << "', num=" << num << ")";

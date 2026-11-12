@@ -19,6 +19,7 @@ template <typename T> static std::optional<BasicObject*> filter_valid_object(T* 
         return obj;
     delete obj;
     return std::nullopt;
+
 }
 
 static std::optional<BasicObject*> parse_object(std::string_view s) {
@@ -169,54 +170,12 @@ static std::pair<std::string, std::string> split_pair(std::string inp) {
     return {a, b};
 }
 
-void do_graph_task() {
-    std::ifstream file("i2.txt");
-    if (!file.is_open())
-        return;
-
-    std::string line;
-    std::map<std::string, std::vector<std::string>> map;
-    while (std::getline(file, line)) {
-        auto [a, b] = split_pair(line);
-        map[a].push_back(b);
-    }
-
-    std::cout << "YOUR INPUT:" << std::endl;
-    for (const auto& [key, value] : map)
-        std::cout << key << " -> [" << utils::join_string_vec(value) << "]" << std::endl;
-
-    std::cout << "ENTER FROM:" << std::endl;
-    std::string from;
-    std::getline(std::cin, from);
-
-    std::vector<std::string> q = {from};
-    std::vector<std::string> possible;
-    while (!q.empty()) {
-        std::vector<std::string> next_q;
-        for (std::string& f : q) {
-            for (std::string& t : map[f]) {
-                // std::cout << "TRYING " << f << " -> " << t << std::endl;
-                if (std::find(possible.begin(), possible.end(), t) == possible.end()) {
-                    possible.push_back(t);
-                    next_q.push_back(t);
-                }
-            }
-        }
-        q = std::move(next_q);
-    }
-
-    std::cout << "POSSIBLE: " << utils::join_string_vec(possible) << std::endl;
-    bool can = map.size() == possible.size();
-    std::cout << "RESULT: " << (can ? "YES" : "NO") << std::endl;
-}
-
 int main(int argc, char* argv[]) {
     std::vector<BasicObject*> vec;
 
-    // do_graph_task();
-    // return 0;
+    bool running = true;
 
-    while (1) {
+    while (running) {
 #ifdef _WIN32
         std::system("cls");
 #else
@@ -234,7 +193,8 @@ int main(int argc, char* argv[]) {
         switch (choice[0]) {
         case '0': {
             std::cout << std::endl;
-            return 0;
+            running = false;
+            break;
         }
         case '1': {
             std::cout << std::endl;

@@ -34,7 +34,7 @@ std::optional<int> try_parse_int(std::string_view s) {
     return std::nullopt;
 }
 
-std::string join_string_vec(std::vector<std::string> vec) {
+std::string join_string_vec(std::vector<std::string>& vec) {
     if (vec.empty())
         return "";
     std::string ret;

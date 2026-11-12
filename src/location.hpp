@@ -8,7 +8,7 @@ public:
 
     Location(std::string_view street, int num);
     Location(std::string_view data);
-    bool is_valid();
+    bool is_valid() const;
 
 private:
     std::ostream& print(std::ostream& os) const override;

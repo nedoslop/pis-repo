@@ -14,7 +14,7 @@ ClassRoom::ClassRoom(std::string_view data) {
         floor = cabinet = 0;
 }
 
-bool ClassRoom::is_valid() { return !name.empty() && floor > 0 && cabinet > 0; }
+bool ClassRoom::is_valid() const { return !name.empty() && floor > 0 && cabinet > 0; }
 
 std::ostream& ClassRoom::print(std::ostream& os) const {
     return os << "ClassRoom(name='" << name << "', floor=" << floor << ", cabinet=" << cabinet

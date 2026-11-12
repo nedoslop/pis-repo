@@ -31,7 +31,7 @@ MyDate::MyDate(const std::string& data) {
         year = month = day = -1;
 }
 
-bool MyDate::is_valid() {
+bool MyDate::is_valid() const {
     return year >= 2000 && year < 2100 && month >= 1 && month <= 12 && day >= 1 &&
            day <= max_days_in_month(year, month);
 }

@@ -9,7 +9,7 @@ struct MyDate {
 
     MyDate();
     MyDate(const std::string& data);
-    bool is_valid();
+    bool is_valid() const;
 
     inline bool operator==(const MyDate& other) const {
         return year == other.year && month == other.month && day == other.day;
